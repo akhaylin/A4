@@ -1,0 +1,23 @@
+CC = gcc
+CCFLAGS = -c -Wall
+
+all: main.o headers.o countCharacters.o countWords.o countLines.o
+	$(CC) main.o headers.o countCharacters.o countWords.o countLines.o -o arajago3_Asn4_Proj1
+
+main.o: arajago3_main_P1.c arajago3_headers_P1.h arajago3_countCharacters.c arajago3_countWords.c arajago3_countLines.c
+	$(CC) $(CCFLAGS) arajago3_main_P1.c -o main.o
+
+countCharacters.o: arajago3_countCharacters.c arajago3_headers_P1.h
+	$(CC) $(CCFLAGS) arajago3_countCharacters.c -o countCharacters.o
+
+countWords.o:  arajago3_countWords.c arajago3_headers_P1.h
+	$(CC) $(CCFLAGS) arajago3_countWords.c -o countWords.o
+
+countLines.o: arajago3_countLines.c arajago3_headers_P1.h
+	$(CC) $(CCFLAGS) arajago3_countLines.c -o countLines.o
+
+headers.o: arajago3_headers_P1.h
+	$(CC) $(CCFLAGS) arajago3_headers_P1.h -o headers.o
+
+clean:
+	rm -rf *.o arajago3_Asn4_Proj1
